@@ -1,33 +1,174 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap');
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  background-color: #f8f9fa;
+  color: #333333;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  width: 100%;
+  height: 60px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  position: relative;
+  background-color: white;
+}
+
+#menuButton {
+  margin: 0 0 0 40px;
+}
+
+header img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+#registerLogin {
+  margin: 0 40px 0;
+}
+
+#registerLogin li {
+  display: inline-block;
+  padding: 5px 8px;
+}
+
+#registerLogin li:nth-child(2n) {
+  font-weight: bold;
+  border: 2px solid #333;
+  border-radius: 25px;
+  margin: 0 0 0 4px;
+}
+#registerLogin a {
+  text-decoration: none;
+  color: #333;
+}
+
+#slideShowWrap {
+  width: 100%;
+  height: 500px;
+  position: relative;
+}
+
+#slideShow {
+  width: 100%;
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#slideShowWrap ul {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+#slideShowWrap li {
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 250px;
+  height: 80px;
   color: white;
+  font-weight: bold;
+}
+#slideShowWrap .sub {
+  font-size: 13px;
+  margin: 14px 12px;
 }
 
-.App-link {
-  color: #61dafb;
+#slideShowWrap .programName {
+  font-size: 18px;
+  margin: 5px 12px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#slideShowWrap li + li {
+  margin: 0 0 0 2px;
+}
+
+#mainWrap {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+#bestProgramWrap {
+  margin: 75px 0;
+  position: relative;
+}
+
+#bestProgramWrap h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#bestProgramWrap ul {
+  margin-top: 30px;
+}
+
+#bestProgramWrap li {
+  display: inline-block;
+  width: 150px;
+  height: 350px;
+  background-color: white;
+}
+
+#bestProgramWrap .programImg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+}
+
+#bestProgramWrap .tag {
+  margin: 16px 12px 12px;
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
+  background-color: #00dbd3;
+  width: 32px;
+  height: 16px;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 16px;
+}
+
+#bestProgramWrap .programName {
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 12px;
+}
+
+#bestProgramWrap .sub {
+  font-size: 12px;
+  color: #999999;
+  position: absolute;
+  bottom: 12px;
+  margin-left: 12px;
+}
+
+#bestProgramWrap li + li {
+  margin-left: 8px;
+}
+
+#bestProgramWrap .eventBanner {
+  width: 465px;
+  height: 350px;
+  background: white;
+  position: absolute;
+  top: 54px;
+  right: 0;
+}
+
+#findProgramWrap h2 {
+  font-size: 24px;
+  font-weight: bold;
 }
