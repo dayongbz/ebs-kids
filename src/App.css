@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 16px;
@@ -8,17 +12,54 @@ body {
 }
 
 header {
-  width: 100%;
+  min-width: 1280px;
   height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
   background-color: white;
+  font-size: 18px;
 }
 
 #menuButton {
-  margin: 0 0 0 40px;
+  margin: 0 0 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.15s linear;
+  width: 100px;
+  height: 60px;
+}
+
+#menuButton a {
+  color: #333;
+  text-decoration: none;
+  transition: inherit;
+  display: inline-block;
+  width: 100px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+
+#menuButton:hover a {
+  color: #0077ff;
+}
+
+#menuButton:hover span:first-child {
+  background-color: #0077ff;
+}
+
+#menuButton span:first-child {
+  transition: inherit;
+  background-color: #333;
+  display: inline-block;
+  width: 18px;
+  height: 16px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  margin-right: 8px;
 }
 
 header img {
@@ -31,12 +72,13 @@ header img {
 }
 
 #registerLogin {
+  font-size: 16px;
   margin: 0 40px 0;
 }
 
 #registerLogin li {
   display: inline-block;
-  padding: 5px 8px;
+  padding: 5px 10px;
 }
 
 #registerLogin li:nth-child(2n) {
@@ -51,7 +93,7 @@ header img {
 }
 
 #slideShowWrap {
-  width: 100%;
+  min-width: 1280px;
   height: 500px;
   position: relative;
 }
@@ -168,7 +210,112 @@ header img {
   right: 0;
 }
 
+#findProgramWrap {
+  position: relative;
+}
+
 #findProgramWrap h2 {
   font-size: 24px;
   font-weight: bold;
+}
+
+#tagWrap {
+  height: 60px;
+  background-color: white;
+  padding: 20px 30px;
+  margin-top: 30px;
+}
+
+#tagWrap li {
+  font-size: 14px;
+  display: inline-block;
+  margin-right: 16px;
+  color: #666;
+}
+
+#tagWrap li.selected {
+  color: white;
+  background-color: #333;
+  padding: 5px 8px;
+  border-radius: 20px;
+}
+
+#programSearch {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 12px;
+  color: #666;
+  border: none;
+  border-bottom: 1px solid #999999;
+  background-color: transparent;
+  width: 300px;
+  padding: 8px;
+}
+
+#programSearchButton {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  width: 13px;
+  height: 13px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#programCardWrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.programCard {
+  width: 300px;
+  height: 320px;
+  background-color: white;
+  margin: 20px 0;
+}
+
+.programCard .programImg {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.programCard .programDetails {
+  padding: 20px 16px 0;
+}
+
+.programCard .programTitle {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.programCard .programSub {
+  font-size: 12px;
+  color: #999;
+  margin-top: 10px;
+}
+
+.programCard .programTime {
+  font-size: 12px;
+  color: #999;
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+  margin-top: 30px;
+}
+
+#programCardAddBtn {
+  width: 170px;
+  height: 50px;
+  border: 2px solid #999;
+  color: #999999;
+  font-size: 14px;
+  text-align: center;
+  line-height: 46px;
+  margin: 50px auto;
 }
