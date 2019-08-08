@@ -119,6 +119,8 @@ header img {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  transition: all 0.5s linear;
+  background-color: black;
 }
 
 #slideShowWrap ul {
@@ -132,28 +134,64 @@ header img {
 }
 
 #slideShowWrap li {
-  opacity: 0.7;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
   width: 250px;
   height: 80px;
   color: white;
   font-weight: bold;
   transition: all 0.2s linear;
   cursor: pointer;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  position: relative;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#slideShowWrap .cover {
+  background-color: #0077ff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  transform: translateX(-100%);
+}
+
+#slideShowWrap .running {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#slideShowWrap .running .cover {
+  animation: cover 5s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes cover {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
 }
 #slideShowWrap li:hover {
-  opacity: 1;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 #slideShowWrap .sub {
   font-size: 13px;
   margin: 14px 12px;
-  color: rgba(255, 255, 255, 0.7);
+  font-weight: bold;
+  position: absolute;
 }
 
 #slideShowWrap .programName {
   font-size: 18px;
   margin: 5px 12px;
+  position: absolute;
+  bottom: 16px;
 }
 
 #slideShowWrap li + li {
