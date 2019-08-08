@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ebs-kids/static/css/main.527f9756.chunk.css",
-    "main.js": "/ebs-kids/static/js/main.a36a5599.chunk.js",
-    "main.js.map": "/ebs-kids/static/js/main.a36a5599.chunk.js.map",
+    "main.css": "/ebs-kids/static/css/main.e680adfc.chunk.css",
+    "main.js": "/ebs-kids/static/js/main.be32980f.chunk.js",
+    "main.js.map": "/ebs-kids/static/js/main.be32980f.chunk.js.map",
     "runtime~main.js": "/ebs-kids/static/js/runtime~main.08477fd0.js",
     "runtime~main.js.map": "/ebs-kids/static/js/runtime~main.08477fd0.js.map",
     "static/js/2.3310f33a.chunk.js": "/ebs-kids/static/js/2.3310f33a.chunk.js",
     "static/js/2.3310f33a.chunk.js.map": "/ebs-kids/static/js/2.3310f33a.chunk.js.map",
     "index.html": "/ebs-kids/index.html",
-    "precache-manifest.600e560264a483f4c0033ef924dad22a.js": "/ebs-kids/precache-manifest.600e560264a483f4c0033ef924dad22a.js",
+    "precache-manifest.530b7bdfe19e8008ba69dbae1e192d83.js": "/ebs-kids/precache-manifest.530b7bdfe19e8008ba69dbae1e192d83.js",
     "service-worker.js": "/ebs-kids/service-worker.js",
-    "static/css/main.527f9756.chunk.css.map": "/ebs-kids/static/css/main.527f9756.chunk.css.map"
+    "static/css/main.e680adfc.chunk.css.map": "/ebs-kids/static/css/main.e680adfc.chunk.css.map"
   }
 }
