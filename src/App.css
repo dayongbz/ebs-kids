@@ -72,13 +72,27 @@ header img {
 }
 
 #registerLogin {
-  font-size: 16px;
+  font-size: 18px;
   margin: 0 40px 0;
 }
 
 #registerLogin li {
   display: inline-block;
-  padding: 5px 10px;
+  padding: 7px 14px;
+  transition: all 0.2s linear;
+}
+
+#registerLogin li:first-child:hover a {
+  color: #0077ff;
+}
+
+#registerLogin li:last-child:hover {
+  border-color: #0077ff;
+  background-color: #0077ff;
+}
+
+#registerLogin li:last-child:hover a {
+  color: white;
 }
 
 #registerLogin li:nth-child(2n) {
@@ -88,6 +102,7 @@ header img {
   margin: 0 0 0 4px;
 }
 #registerLogin a {
+  transition: inherit;
   text-decoration: none;
   color: #333;
 }
@@ -117,15 +132,23 @@ header img {
 }
 
 #slideShowWrap li {
+  opacity: 0.7;
   background-color: rgba(255, 255, 255, 0.2);
   width: 250px;
   height: 80px;
   color: white;
   font-weight: bold;
+  transition: all 0.2s linear;
+  cursor: pointer;
 }
+#slideShowWrap li:hover {
+  opacity: 1;
+}
+
 #slideShowWrap .sub {
   font-size: 13px;
   margin: 14px 12px;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 #slideShowWrap .programName {
@@ -163,10 +186,18 @@ header img {
   background-color: white;
 }
 
+#bestProgramWrap li:hover {
+  transition: all 0.2s linear;
+  box-shadow: 0 0 12px 5px rgba(0, 0, 0, 0.1);
+}
+
+#bestProgramWrap li:hover img {
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: scale(1.2);
+}
+
 #bestProgramWrap .programImg {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
   height: 200px;
 }
 
@@ -229,8 +260,14 @@ header img {
 #tagWrap li {
   font-size: 14px;
   display: inline-block;
-  margin-right: 16px;
+  padding: 5px 10px;
   color: #666;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+#tagWrap li:hover {
+  color: #0077ff;
 }
 
 #tagWrap li.selected {
@@ -279,11 +316,19 @@ header img {
   margin: 20px 0;
 }
 
+.programCard:hover {
+  transition: all 0.2s linear;
+  box-shadow: 0 0 12px 5px rgba(0, 0, 0, 0.1);
+}
+
+.programCard:hover img {
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: scale(1.2);
+}
+
 .programCard .programImg {
   height: 200px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 .programCard .programDetails {
@@ -310,6 +355,7 @@ header img {
 }
 
 #programCardAddBtn {
+  font-weight: bold;
   width: 170px;
   height: 50px;
   border: 2px solid #999;
@@ -318,4 +364,11 @@ header img {
   text-align: center;
   line-height: 46px;
   margin: 50px auto;
+  transition: all 0.2s linear;
+  cursor: pointer;
+}
+
+#programCardAddBtn:hover {
+  background-color: #999;
+  color: white;
 }
