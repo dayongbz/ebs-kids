@@ -111,6 +111,13 @@ header img {
   min-width: 1280px;
   height: 500px;
   position: relative;
+  cursor: pointer;
+}
+
+#preloadImage {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 #slideShow {
@@ -119,7 +126,7 @@ header img {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  transition: all 0.5s linear;
+  transition: all 0.3s linear;
   background-color: black;
 }
 
