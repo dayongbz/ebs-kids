@@ -102,7 +102,7 @@ export default function SlideShow() {
       <div
         style={{
           width: '100%',
-          height: '100px',
+          height: '140px',
           backgroundImage: 'url(images/gradient.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
