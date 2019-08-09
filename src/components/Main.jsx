@@ -1,6 +1,30 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 export default function Main() {
+  const tagRef = useRef();
+
+  function onClick(event) {
+    if (event.target.classList.contains('selected')) {
+      if (event.target.innerText === '#전체') {
+        return;
+      }
+      event.target.classList.remove('selected');
+    } else {
+      if (event.target.innerText !== '#전체') {
+        tagRef.current.children[0].classList.remove('selected');
+      } else {
+        for (let i = 1; i < tagRef.current.children.length; i++) {
+          tagRef.current.children[i].classList.remove('selected');
+        }
+      }
+      event.target.classList.add('selected');
+    }
+  }
+  useEffect(() => {
+    for (let i = 0; i < tagRef.current.children.length; i++) {
+      tagRef.current.children[i].addEventListener('click', onClick);
+    }
+  }, []);
   return (
     <div id="mainWrap">
       <div id="bestProgramWrap">
@@ -67,7 +91,7 @@ export default function Main() {
       <div id="findProgramWrap">
         <h2>전체 프로그램</h2>
         <div id="tagWrap">
-          <ul>
+          <ul ref={tagRef}>
             <li className="selected">#전체</li>
             <li>#월</li>
             <li>#화</li>
