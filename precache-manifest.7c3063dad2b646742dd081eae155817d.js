@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "24ba6035bd650a37c585a3dd6f32339b",
+    "revision": "312b8f80daf88a480e1b8b5236d677b0",
     "url": "/ebs-kids/index.html"
   },
   {
-    "revision": "ed1f8caebf27194082de",
-    "url": "/ebs-kids/static/css/main.e680adfc.chunk.css"
+    "revision": "c689bf7870f0ef1190e7",
+    "url": "/ebs-kids/static/css/main.403b62b3.chunk.css"
   },
   {
     "revision": "2315f74ce3c99316133d",
     "url": "/ebs-kids/static/js/2.3310f33a.chunk.js"
   },
   {
-    "revision": "ed1f8caebf27194082de",
-    "url": "/ebs-kids/static/js/main.be32980f.chunk.js"
+    "revision": "c689bf7870f0ef1190e7",
+    "url": "/ebs-kids/static/js/main.76e5d5af.chunk.js"
   },
   {
     "revision": "959c9e23e684bbdb9bb5",
