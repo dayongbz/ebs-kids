@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 export default function Main() {
   const tagRef = useRef();
+  const searchRef = useRef();
   const [jsonData, setJsonData] = useState();
   const [cardList, setCardList] = useState();
 
@@ -13,19 +14,18 @@ export default function Main() {
         }
         event.target.classList.remove('selected');
       } else {
-        for (let i = 0; i < tagRef.current.children.length; i++) {
+        for (let i = 0; i < tagRef.current.children.length; i += 1) {
           if (
-            i === [...event.target.parentNode.children].indexOf(event.target)
+            i !== [...event.target.parentNode.children].indexOf(event.target)
           ) {
-            continue;
+            tagRef.current.children[i].classList.remove('selected');
           }
-          tagRef.current.children[i].classList.remove('selected');
         }
       }
       event.target.classList.add('selected');
     }
 
-    for (let i = 0; i < tagRef.current.children.length; i++) {
+    for (let i = 0; i < tagRef.current.children.length; i += 1) {
       tagRef.current.children[i].addEventListener('click', onClick);
     }
     fetch('programs.json')
@@ -108,16 +108,70 @@ export default function Main() {
           break;
       }
     }
-    for (let i = 0; i < tagRef.current.children.length; i++) {
+    function search(event) {
+      if (event.target.value !== '') {
+        const reg = new RegExp(`${event.target.value}`);
+        tagRef.current.children[0].classList.add('selected');
+        for (let i = 1; i < tagRef.current.children.length; i += 1) {
+          tagRef.current.children[i].classList.remove('selected');
+        }
+        setCardList(
+          jsonData
+            .filter(item => reg.test(item.name))
+            .map(item => {
+              return (
+                <div className="programCard" key={jsonData.indexOf(item)}>
+                  <div className="programImg">
+                    <img
+                      src="images/37e4548c-ed0a-4ba8-bcff-36b5e2858775.png"
+                      alt={item.name}
+                    />
+                  </div>
+                  <div className="programDetails">
+                    <p className="programTitle">{item.name}</p>
+                    <p className="programSub">{item.details}</p>
+                    <p className="programTime">{item.date[1]}</p>
+                  </div>
+                </div>
+              );
+            }),
+        );
+      } else {
+        setCardList(
+          jsonData.map(item => {
+            return (
+              <div className="programCard" key={jsonData.indexOf(item)}>
+                <div className="programImg">
+                  <img
+                    src="images/37e4548c-ed0a-4ba8-bcff-36b5e2858775.png"
+                    alt={item.name}
+                  />
+                </div>
+                <div className="programDetails">
+                  <p className="programTitle">{item.name}</p>
+                  <p className="programSub">{item.details}</p>
+                  <p className="programTime">{item.date[1]}</p>
+                </div>
+              </div>
+            );
+          }),
+        );
+      }
+    }
+    for (let i = 0; i < tagRef.current.children.length; i += 1) {
       tagRef.current.children[i].addEventListener('click', clickTag);
     }
+    searchRef.current.addEventListener('change', search);
     if (cardList == 0) {
+      // cardList가 비어있다면
       setCardList(<p className="noCard">아쉽지만 해당하는 방송이 없습니다.</p>);
     }
     return () => {
-      for (let i = 0; i < tagRef.current.children.length; i++) {
+      for (let i = 0; i < tagRef.current.children.length; i += 1) {
         tagRef.current.children[i].removeEventListener('click', clickTag);
       }
+
+      searchRef.current.removeEventListener('change', search);
     };
   }, [cardList, jsonData]);
 
@@ -198,7 +252,12 @@ export default function Main() {
             <li>#일</li>
           </ul>
         </div>
-        <input id="programSearch" type="text" placeholder="프로그램명 검색" />
+        <input
+          ref={searchRef}
+          id="programSearch"
+          type="text"
+          placeholder="프로그램명 검색"
+        />
         <div
           id="programSearchButton"
           style={{ backgroundImage: 'url(images/search.png)' }}
