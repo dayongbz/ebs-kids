@@ -40,7 +40,7 @@ export default function Main() {
               <div className="programCard" key={json.indexOf(item)}>
                 <div className="programImg">
                   <img
-                    src="images/37e4548c-ed0a-4ba8-bcff-36b5e2858775.png"
+                    src={`images/${item.english}_medium.jpg`}
                     alt={item.name}
                   />
                 </div>
@@ -54,6 +54,11 @@ export default function Main() {
           }),
         );
       });
+    return () => {
+      for (let i = 0; i < tagRef.current.children.length; i += 1) {
+        tagRef.current.children[i].removeEventListener('click', onClick);
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -66,7 +71,7 @@ export default function Main() {
                 <div className="programCard" key={jsonData.indexOf(item)}>
                   <div className="programImg">
                     <img
-                      src="images/37e4548c-ed0a-4ba8-bcff-36b5e2858775.png"
+                      src={`images/${item.english}_medium.jpg`}
                       alt={item.name}
                     />
                   </div>
@@ -92,7 +97,7 @@ export default function Main() {
                   <div className="programCard" key={jsonData.indexOf(item)}>
                     <div className="programImg">
                       <img
-                        src="images/37e4548c-ed0a-4ba8-bcff-36b5e2858775.png"
+                        src={`images/${item.english}_medium.jpg`}
                         alt={item.name}
                       />
                     </div>
@@ -123,7 +128,7 @@ export default function Main() {
                 <div className="programCard" key={jsonData.indexOf(item)}>
                   <div className="programImg">
                     <img
-                      src="images/37e4548c-ed0a-4ba8-bcff-36b5e2858775.png"
+                      src={`images/${item.english}_medium.jpg`}
                       alt={item.name}
                     />
                   </div>
@@ -143,7 +148,7 @@ export default function Main() {
               <div className="programCard" key={jsonData.indexOf(item)}>
                 <div className="programImg">
                   <img
-                    src="images/37e4548c-ed0a-4ba8-bcff-36b5e2858775.png"
+                    src={`images/${item.english}_medium.jpg`}
                     alt={item.name}
                   />
                 </div>
@@ -236,7 +241,10 @@ export default function Main() {
             <p className="sub">이벤트 진행중인</p>
           </li>
         </ul>
-        <div className="eventBanner" />
+        <div
+          className="eventBanner"
+          style={{ backgroundImage: 'url(images/banner1.jpg)' }}
+        />
       </div>
       <div id="findProgramWrap">
         <h2>전체 프로그램</h2>

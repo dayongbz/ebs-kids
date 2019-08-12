@@ -1,49 +1,49 @@
 [
   {
     "name": "모여라 딩동댕",
-    "engilsh": "dingdongdeng",
+    "english": "dingdongdeng",
     "details": "꿈이 이루어지는 번개타운으로 모두 모이세요~",
     "date": [["월", "화", "수", "목", "금"], "월~금 오후 2시 30분"]
   },
   {
     "name": "최고다 호기심딱지",
-    "engilsh": "whybest",
+    "english": "whybest",
     "details": "호기심을 완벽하게 해결!",
     "date": [["수"], "수 오전 8시 45분"]
   },
   {
     "name": "출동!슈퍼윙스",
-    "engilsh": "superwings",
+    "english": "superwings",
     "details": "새로운 슈퍼윙스와 떠나는 신나는 세계문화체험",
     "date": [["화", "수"], "화,수 오전 9시 15분"]
   },
   {
     "name": "미니특공대 x",
-    "engilsh": "miniArmy",
+    "english": "miniArmy",
     "details": "최강의 로봇이 지구를 지킨다",
     "date": [["목", "금"], "목,금 오후 6시 25분"]
   },
   {
     "name": "생방송 판다다",
-    "engilsh": "miniArmy",
-    "details": "최강의 로봇이 지구를 지킨다",
+    "english": "pandada",
+    "details": "생방송으로 하는 재밌는 판다다",
     "date": [["월", "화", "수", "목", "금"], "월~금 오후 7시 30분"]
   },
   {
     "name": "딩동댕 유치원",
-    "engilsh": "kindergarden",
+    "english": "kindergarden",
     "details": "언제나 유쾌한 일들로 가득한 딩동댕 유치원",
     "date": [["월", "화", "수", "목", "금"], "월~금 오전 8시"]
   },
   {
     "name": "보니하니",
-    "engilsh": "bonyhany",
+    "english": "bonyhany",
     "details": "보니랑 하니랑 같이 놀자",
     "date": [["월", "화", "수", "목", "금"], "월~금 오후 6시"]
   },
   {
     "name": "자이언트펭",
-    "engilsh": "giantpang",
+    "english": "giantpang",
     "details": "스타가 꿈인 펭수의 좌충우돌 성장기",
     "date": [["목"], "목 오후 6시 45분"]
   }

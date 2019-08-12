@@ -30,6 +30,7 @@ header {
   transition: all 0.15s linear;
   width: 100px;
   height: 60px;
+  cursor: pointer;
 }
 
 #menuButton a {
@@ -43,7 +44,7 @@ header {
   text-align: center;
 }
 
-#menuButton:hover a {
+#menuButton:hover {
   color: #0077ff;
 }
 
@@ -229,6 +230,7 @@ header img {
   width: 150px;
   height: 350px;
   background-color: white;
+  cursor: pointer;
 }
 
 #bestProgramWrap li:hover {
@@ -362,6 +364,7 @@ header img {
   float: left;
   background-color: white;
   margin: 20px 0;
+  cursor: pointer;
 }
 
 .programCard:not(:nth-child(4n)) {

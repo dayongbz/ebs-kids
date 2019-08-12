@@ -4,10 +4,8 @@ export default function Header() {
   return (
     <header>
       <div id="menuButton">
-        <a href="/">
-          <span style={{ backgroundImage: 'url(images/set_gnb.png)' }} />
-          <span>메뉴</span>
-        </a>
+        <span style={{ backgroundImage: 'url(images/set_gnb.png)' }} />
+        <span>메뉴</span>
       </div>
       <a href="/">
         <img
