@@ -347,17 +347,25 @@ header img {
 
 #programCardWrap {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  flex-wrap: wrap;
+  min-height: 200px;
+}
+
+#programCardWrap::after {
+  content: '';
+  display: block;
+  clear: both;
 }
 
 .programCard {
   width: 300px;
   height: 320px;
+  float: left;
   background-color: white;
   margin: 20px 0;
+}
+
+.programCard:not(:nth-child(4n)) {
+  margin-right: 26.6px;
 }
 
 .programCard:hover {
@@ -396,6 +404,15 @@ header img {
   padding: 10px 0;
   border-top: 1px solid #eee;
   margin-top: 30px;
+}
+
+p.noCard {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  color: #999;
+  height: 200px;
+  line-height: 200px;
 }
 
 #programCardAddBtn {

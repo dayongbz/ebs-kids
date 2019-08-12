@@ -1,30 +1,126 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 export default function Main() {
   const tagRef = useRef();
+  const [jsonData, setJsonData] = useState();
+  const [cardList, setCardList] = useState();
 
-  function onClick(event) {
-    if (event.target.classList.contains('selected')) {
-      if (event.target.innerText === '#전체') {
-        return;
-      }
-      event.target.classList.remove('selected');
-    } else {
-      if (event.target.innerText !== '#전체') {
-        tagRef.current.children[0].classList.remove('selected');
+  useEffect(() => {
+    function onClick(event) {
+      if (event.target.classList.contains('selected')) {
+        if (event.target.innerText === '#전체') {
+          return;
+        }
+        event.target.classList.remove('selected');
       } else {
-        for (let i = 1; i < tagRef.current.children.length; i++) {
+        for (let i = 0; i < tagRef.current.children.length; i++) {
+          if (
+            i === [...event.target.parentNode.children].indexOf(event.target)
+          ) {
+            continue;
+          }
           tagRef.current.children[i].classList.remove('selected');
         }
       }
       event.target.classList.add('selected');
     }
-  }
-  useEffect(() => {
+
     for (let i = 0; i < tagRef.current.children.length; i++) {
       tagRef.current.children[i].addEventListener('click', onClick);
     }
+    fetch('programs.json')
+      .then(data => {
+        return data.json();
+      })
+      .then(json => {
+        setJsonData(json);
+        setCardList(
+          json.map(item => {
+            return (
+              <div className="programCard" key={json.indexOf(item)}>
+                <div className="programImg">
+                  <img
+                    src="images/37e4548c-ed0a-4ba8-bcff-36b5e2858775.png"
+                    alt={item.name}
+                  />
+                </div>
+                <div className="programDetails">
+                  <p className="programTitle">{item.name}</p>
+                  <p className="programSub">{item.details}</p>
+                  <p className="programTime">{item.date[1]}</p>
+                </div>
+              </div>
+            );
+          }),
+        );
+      });
   }, []);
+
+  useEffect(() => {
+    function clickTag(event) {
+      switch (event.target.innerText) {
+        case '#전체':
+          setCardList(
+            jsonData.map(item => {
+              return (
+                <div className="programCard" key={jsonData.indexOf(item)}>
+                  <div className="programImg">
+                    <img
+                      src="images/37e4548c-ed0a-4ba8-bcff-36b5e2858775.png"
+                      alt={item.name}
+                    />
+                  </div>
+                  <div className="programDetails">
+                    <p className="programTitle">{item.name}</p>
+                    <p className="programSub">{item.details}</p>
+                    <p className="programTime">{item.date[1]}</p>
+                  </div>
+                </div>
+              );
+            }),
+          );
+          break;
+        default:
+          setCardList(
+            jsonData
+              .filter(
+                item =>
+                  item.date[0].indexOf(event.target.innerText.slice(1)) !== -1,
+              )
+              .map(item => {
+                return (
+                  <div className="programCard" key={jsonData.indexOf(item)}>
+                    <div className="programImg">
+                      <img
+                        src="images/37e4548c-ed0a-4ba8-bcff-36b5e2858775.png"
+                        alt={item.name}
+                      />
+                    </div>
+                    <div className="programDetails">
+                      <p className="programTitle">{item.name}</p>
+                      <p className="programSub">{item.details}</p>
+                      <p className="programTime">{item.date[1]}</p>
+                    </div>
+                  </div>
+                );
+              }),
+          );
+          break;
+      }
+    }
+    for (let i = 0; i < tagRef.current.children.length; i++) {
+      tagRef.current.children[i].addEventListener('click', clickTag);
+    }
+    if (cardList == 0) {
+      setCardList(<p className="noCard">아쉽지만 해당하는 방송이 없습니다.</p>);
+    }
+    return () => {
+      for (let i = 0; i < tagRef.current.children.length; i++) {
+        tagRef.current.children[i].removeEventListener('click', clickTag);
+      }
+    };
+  }, [cardList, jsonData]);
+
   return (
     <div id="mainWrap">
       <div id="bestProgramWrap">
@@ -107,112 +203,7 @@ export default function Main() {
           id="programSearchButton"
           style={{ backgroundImage: 'url(images/search.png)' }}
         />
-        <div id="programCardWrap">
-          <div className="programCard">
-            <div className="programImg">
-              <img
-                src="images/37e4548c-ed0a-4ba8-bcff-36b5e2858775.png"
-                alt="최고다 호기심딱지"
-              />
-            </div>
-            <div className="programDetails">
-              <p className="programTitle">최고다 호기심딱지</p>
-              <p className="programSub">호기심을 완벽하게 해결!</p>
-              <p className="programTime">수 오전 8시 35분</p>
-            </div>
-          </div>
-          <div className="programCard">
-            <div className="programImg">
-              <img
-                src="images/37e4548c-ed0a-4ba8-bcff-36b5e2858775.png"
-                alt="최고다 호기심딱지"
-              />
-            </div>
-            <div className="programDetails">
-              <p className="programTitle">최고다 호기심딱지</p>
-              <p className="programSub">호기심을 완벽하게 해결!</p>
-              <p className="programTime">수 오전 8시 35분</p>
-            </div>
-          </div>
-          <div className="programCard">
-            <div className="programImg">
-              <img
-                src="images/37e4548c-ed0a-4ba8-bcff-36b5e2858775.png"
-                alt="최고다 호기심딱지"
-              />
-            </div>
-            <div className="programDetails">
-              <p className="programTitle">최고다 호기심딱지</p>
-              <p className="programSub">호기심을 완벽하게 해결!</p>
-              <p className="programTime">수 오전 8시 35분</p>
-            </div>
-          </div>
-          <div className="programCard">
-            <div className="programImg">
-              <img
-                src="images/37e4548c-ed0a-4ba8-bcff-36b5e2858775.png"
-                alt="최고다 호기심딱지"
-              />
-            </div>
-            <div className="programDetails">
-              <p className="programTitle">최고다 호기심딱지</p>
-              <p className="programSub">호기심을 완벽하게 해결!</p>
-              <p className="programTime">수 오전 8시 35분</p>
-            </div>
-          </div>
-          <div className="programCard">
-            <div className="programImg">
-              <img
-                src="images/37e4548c-ed0a-4ba8-bcff-36b5e2858775.png"
-                alt="최고다 호기심딱지"
-              />
-            </div>
-            <div className="programDetails">
-              <p className="programTitle">최고다 호기심딱지</p>
-              <p className="programSub">호기심을 완벽하게 해결!</p>
-              <p className="programTime">수 오전 8시 35분</p>
-            </div>
-          </div>
-          <div className="programCard">
-            <div className="programImg">
-              <img
-                src="images/37e4548c-ed0a-4ba8-bcff-36b5e2858775.png"
-                alt="최고다 호기심딱지"
-              />
-            </div>
-            <div className="programDetails">
-              <p className="programTitle">최고다 호기심딱지</p>
-              <p className="programSub">호기심을 완벽하게 해결!</p>
-              <p className="programTime">수 오전 8시 35분</p>
-            </div>
-          </div>
-          <div className="programCard">
-            <div className="programImg">
-              <img
-                src="images/37e4548c-ed0a-4ba8-bcff-36b5e2858775.png"
-                alt="최고다 호기심딱지"
-              />
-            </div>
-            <div className="programDetails">
-              <p className="programTitle">최고다 호기심딱지</p>
-              <p className="programSub">호기심을 완벽하게 해결!</p>
-              <p className="programTime">수 오전 8시 35분</p>
-            </div>
-          </div>
-          <div className="programCard">
-            <div className="programImg">
-              <img
-                src="images/37e4548c-ed0a-4ba8-bcff-36b5e2858775.png"
-                alt="최고다 호기심딱지"
-              />
-            </div>
-            <div className="programDetails">
-              <p className="programTitle">최고다 호기심딱지</p>
-              <p className="programSub">호기심을 완벽하게 해결!</p>
-              <p className="programTime">수 오전 8시 35분</p>
-            </div>
-          </div>
-        </div>
+        <div id="programCardWrap">{cardList}</div>
         <div id="programCardAddBtn">더보기</div>
       </div>
     </div>
