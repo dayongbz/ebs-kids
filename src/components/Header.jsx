@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { timeout } from 'q';
 
 export default function Header() {
   const menuRef = useRef();
@@ -10,7 +9,7 @@ export default function Header() {
       menuRef.current.children[0].style.transform = 'translateX(-100%)';
       setTimeout(() => {
         menuRef.current.style.display = 'none';
-      }, 600);
+      }, 500);
     }
     function visibleClick() {
       menuRef.current.style.display = 'block';
